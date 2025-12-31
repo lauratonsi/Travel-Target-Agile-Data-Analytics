@@ -1,0 +1,383 @@
+\documentclass[12pt]{article} % Font grande 12pt
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\begin{document} 
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    {\Large\bfseries Università di Bologna \par}
+    \vspace{0.3cm}
+    {\large Corso di Laurea Magistrale in Governance e Politiche di Innovazione Digitale (GEPID)\par}
+    \vspace{0.3cm}
+    {\large Insegnamento: Metodi Informatici per la Trasformazione Digitale\par}
+
+    \vspace{3cm}
+    {\Huge\bfseries Relazione Finale: Progetto 3 \par}
+    \vspace{0.5cm}
+    {\LARGE\itshape Travel Target -- Analisi Territoriale delle Abitudini di Viaggio\par}
+
+    \vfill
+    {\large\bfseries Membri del team:\par}
+    \vspace{0.2cm}
+    {\large Cioni Susanna \quad • \quad Tonsi Laura \quad • \quad Vignoli Filippo\par}
+
+    \vspace{2cm}
+    {\large Anno Accademico 2024/2025}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introduzione}
+Questo documento presenta la relazione finale del gruppo per il progetto "Travel Target".
+
+\section{Descrizione del Team}
+\label{chap:team_description}
+
+Questa sezione descrive la composizione del nostro team di progetto, le dinamiche di formazione, la scelta dei ruoli e una riflessione sul nostro modo di lavorare durante lo sviluppo del prodotto "Travel Target".
+
+\subsection{Composizione del Team e Dinamiche Iniziali}
+Il nostro team, inizialmente composto da quattro membri, ha affrontato un'importante variazione durante il corso del progetto. Inizialmente, il team era così composto:
+\begin{itemize}
+    \item Susanna Cioni (Matricola: 0001164027) - Ruolo: Sviluppatrice
+    \item Laura Tonsi (Matricola: 0001164043) - Ruolo: Scrum Master
+    \item Filippo Vignoli (Matricola: 0900087618) - Ruolo: Product Owner
+    \item Alessia Monica Rezzaghi - Ruolo: Sviluppatrice
+\end{itemize}
+Alessia ha purtroppo deciso di lasciare il corso di laurea durante lo svolgimento del progetto. Questo cambiamento ha rappresentato un momento di difficoltà per il team, richiedendo una ricalibrazione degli equilibri e una ridistribuzione dei compiti. Abbiamo affrontato questa sfida riorganizzando le responsabilità e rafforzando la collaborazione interna per garantire il proseguimento efficiente del lavoro.
+
+\subsection{Scelta e Consolidamento dei Ruoli}
+La scelta dei ruoli è avvenuta in modo collaborativo e basandosi sulle esperienze pregresse dei singoli membri, come suggerito dalle linee guida del progetto.
+\begin{itemize}
+    \item \textbf{Susanna Cioni (Sviluppatore):} Il ruolo di sviluppatrice è stato assegnato a Susanna, in quanto ha realizzato tutti i notebook del progetto, dimostrando le competenze tecniche necessarie per l'implementazione del prodotto.
+    \item \textbf{Laura Tonsi (Scrum Master):} Laura ha assunto il ruolo di Scrum Master. La sua propensione all'organizzazione, alla gestione del processo e al supporto del team l'ha resa la scelta ideale per questo ruolo cruciale nella metodologia Agile.
+    \item \textbf{Filippo Vignoli (Product Owner):} Filippo ha ricoperto il ruolo di Product Owner. La sua capacità di definire la visione del prodotto, gestire il backlog e interfacciarsi con le esigenze degli stakeholder è stata fondamentale per il successo del progetto.
+\end{itemize}
+
+\subsection{Esperienze Precedenti e Affiatamento del Team}
+Un aspetto fondamentale che ha influenzato positivamente la nostra capacità di affrontare le sfide è stata la preesistente collaborazione tra alcuni membri del team. Susanna, Alessia e Laura avevano già avuto modo di lavorare insieme su progetti precedenti, in particolare la preparazione del progetto per l'esame di Laboratorio di Programmazione è stato un momento cruciale per rinforzare il team di lavoro. Questa esperienza congiunta aveva permesso di consolidare un metodo di lavoro efficace e un elevato affiatamento del team. Filippo si è unito al gruppo successivamente, integrandosi rapidamente nelle dinamiche esistenti e contribuendo attivamente alla ridefinizione dei flussi di lavoro dopo il riassetto del team. Questo approccio è in linea con le aspettative del progetto riguardo alla descrizione del team, inclusa la modalità di scelta.
+
+\section{Product Canvas}
+Il Product Canvas sintetizza la visione e gli elementi chiave del progetto "Travel Target", definendo il problema, la soluzione, il valore offerto e i canali attraverso i quali il prodotto raggiunge i suoi utenti.
+\begin{itemize}
+    \item \textbf{Nome Prodotto:} Travel Target – Analisi territoriale delle abitudini di viaggio
+    \item \textbf{Problema:} Le campagne turistiche sono spesso generiche, senza considerare le differenze regionali nei comportamenti di viaggio.
+    \item \textbf{Utente Principale:} Enti turistici regionali, agenzie di viaggio, policy maker del turismo
+    \item \textbf{Soluzione:} Un chatbot interattivo per ottenere informazioni personalizzate sulle preferenze di viaggio.
+    \item \textbf{Valore Offerto:} Targeting più efficace e decisioni data-driven per promozione turistica
+    \item \textbf{Canali:} Google Colab (ambiente di sviluppo ed esecuzione del chatbot), Google Drive (per la condivisione dei dataset puliti e dei report/visualizzazioni esportati).
+    \item \textbf{Metriche di Successo:} Copertura territoriale, precisione del chatbot, validazione con le personae
+    \item \textbf{Risorse:} Dataset ISTAT, Python, Google Colab, Overleaf, Taiga, Essence
+    \item \textbf{Attività Chiave:} Analisi dati, generazione chatbot, creazione raccomandazioni
+    \item \textbf{Stakeholder:} Enti pubblici (regioni, ministero), operatori turistici privati
+\end{itemize}
+
+\subsection{Scope del Prodotto}
+Il prodotto "Travel Target" ha l'obiettivo di fornire uno strumento semplice e interattivo per analizzare le abitudini di viaggio degli italiani, personalizzate per area geografica di residenza. Lo scopo è permettere a enti pubblici e operatori turistici di accedere a dati chiave sui comportamenti di viaggio, allo scopo di progettare strategie promozionali più efficaci.
+
+Il prodotto include:
+\begin{itemize}
+    \item Un chatbot che risponde a domande sulle preferenze di viaggio per area geografica.
+    \item Tabelle con percentuali riassuntive di destinazioni, mezzi e alloggi.
+\end{itemize}
+
+\subsection{Backlog del Prodotto}
+Il backlog iniziale del prodotto prevedeva le seguenti funzionalità, derivanti direttamente dalle user story:
+\begin{itemize}
+    \item Estrazione e pulizia dei dataset ISTAT 2023 relativi a residenza, destinazione, mezzi e alloggi.
+    \item Analisi dei dati con calcolo delle percentuali per macro-area geografica.
+    \item Generazione automatica di tabelle riepilogative filtrabili per persona target.
+    \item Implementazione di un chatbot interattivo (basato su stringhe e logica if-then) in grado di rispondere a richieste come: "Cosa preferiscono i residenti del Centro per l'estate?".
+\end{itemize}
+
+\section{Personae}
+Per garantire che il prodotto sia utile e risponda a esigenze reali, abbiamo identificato tre personae chiave che rappresentano i nostri utenti target.
+\subsection{Giulia – Responsabile Marketing Nord-ovest}
+\begin{itemize}
+    \item Età: 42 anni
+    \item Obiettivo: Aumentare i flussi turistici dal Nord-ovest verso mete italiane meno conosciute.
+    \item Sfida: Non sa quali destinazioni preferiscano né che mezzi usino i residenti del Nord-ovest per i loro viaggi.
+    \item Use Case: Giulia accede ai dati ISTAT, filtra i residenti del Nord-ovest, seleziona i viaggi in Italia effettuati in auto, e identifica destinazioni meno frequentate da promuovere in una campagna digitale.
+\end{itemize}
+\subsection{Luca – Data Analyst in agenzia viaggi online}
+\begin{itemize}
+    \item Età: 28 anni
+    \item Obiettivo: Offrire pacchetti su misura in base alla zona di residenza.
+    \item Sfida: Non ha dati affidabili sui comportamenti di viaggio che gli permettano di identificare nicchie di mercato specifiche.
+    \item Use Case: Luca analizza i viaggi brevi dei residenti italiani, identifica le macroaree dove è alta la quota di viaggi all’estero, e crea offerte last minute verso mete europee brevi da quelle aree.
+\end{itemize}
+\subsection{Silvia – Funzionaria del Ministero del Turismo}
+\begin{itemize}
+    \item Età: 50 anni
+    \item Obiettivo: Promuovere turismo sostenibile e interno.
+    \item Sfida: Individuare regioni con scarso turismo interno per orientare politiche di incentivazione.
+    \item Use Case: Silvia confronta i dati per macroarea su viaggi in Italia. Le aree con bassa quota interna vengono inserite in un piano ministeriale di incentivi per turismo sostenibile e locale.
+\end{itemize}
+
+\newpage
+\section{User Stories}
+Le seguenti user story guidano la progettazione e lo sviluppo del nostro prodotto, derivando direttamente dalle esigenze delle nostre personae.
+\begin{itemize}
+    \item \textbf{Giulia:} Come responsabile marketing di un ente turistico nel Nord-ovest, voglio conoscere le destinazioni italiane meno scelte dai residenti che viaggiano in auto, così da progettare campagne promozionali mirate verso mete raggiungibili su strada.
+    \item \textbf{Luca:} Come data analyst in un’agenzia viaggi, voglio individuare le macro-aree italiane con la più alta quota di viaggi all’estero, così da proporre offerte europee mirate in base alla propensione all’espatrio.
+    \item \textbf{Silvia:} Come funzionaria pubblica del Ministero del Turismo, voglio identificare le aree con la più bassa quota di turismo interno, così da orientare politiche di incentivazione verso il turismo locale e sostenibile.
+\end{itemize}
+
+
+\subsection{Scenario d'Uso del Chatbot}
+Nella figura seguente è rappresentata un'interazione reale tra l'utente Giulia, responsabile marketing, e il sistema Travel Target. Lo scenario mostra come, partendo da un bisogno specifico (capire le preferenze di viaggio dei residenti del Nord-ovest), il chatbot fornisca dati utili per progettare campagne mirate.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{chatbot.png}
+    \caption{Esempio di interazione del chatbot Travel Target con la persona \textit{Giulia}, responsabile marketing.}
+    
+\end{figure}
+
+\newpage
+\section{Descrizione dei Dataset Utilizzati}
+Per questo progetto sono stati utilizzati tre dataset ufficiali provenienti dal portale open data dell’ISTAT (Istituto Nazionale di Statistica), relativi ai comportamenti di viaggio degli italiani. I dati, riferiti all’anno 2023, sono stati raccolti tramite indagini campionarie e diffusi in formato Excel.
+
+\subsection{Residenza e destinazione dei viaggiatori}
+\begin{itemize}
+    \item Fonte: ISTAT – Viaggi e vacanze degli italiani
+    \item Contenuto: Flussi di viaggio suddivisi per area di residenza (Nord-ovest, Nord-est, Centro, Sud, Isole) e destinazione (Italia, estero, Nord, Centro, Sud, Isole, ecc.).
+    \item Variabili principali:
+    \begin{itemize}
+        \item Residenza: area geografica di partenza
+        \item Destinazione: luogo di arrivo
+        \item Anno: 2023
+        \item Valore: numero stimato di viaggi
+    \end{itemize}
+    \item Scopo: Analizzare le abitudini di destinazione, distinguendo tra turismo interno ed estero.
+\end{itemize}
+
+\subsection{Mezzo di trasporto prevalente}
+\begin{itemize}
+    \item Contenuto: Mezzi di trasporto utilizzati nei viaggi, per area di residenza.
+    \item Variabili principali:
+    \begin{itemize}
+        \item Residenza: area geografica
+        \item Mezzo: tipo di trasporto (auto, treno, aereo, altro)
+        \item Anno: 2023
+        \item Valore: numero di viaggi
+    \end{itemize}
+    \item Scopo: Comprendere le preferenze di mobilità e il potenziale delle destinazioni raggiungibili con diversi mezzi.
+\end{itemize}
+
+\subsection{Tipo di alloggio prevalente}
+\begin{itemize}
+    \item Contenuto: Scelta dell’alloggio nei viaggi degli italiani, per area di residenza.
+    \item Variabili principali:
+    \begin{itemize}
+        \item Residenza: area geografica
+        \item Alloggio: tipologia (albergo, affitto, amici/parenti, ecc.)
+        \item Anno: 2023
+        \item Valore: numero stimato di viaggi
+    \end{itemize}
+    \item Scopo: Individuare modelli di permanenza e valutare la domanda di servizi ricettivi per orientare l'offerta turistica.
+\end{itemize}
+
+\newpage
+\section{Output e Valore}
+Questa sezione presenta i risultati concreti ottenuti attraverso lo sviluppo del progetto "Travel Target". Ogni output è stato progettato per rispondere direttamente alle user story identificate nella fase iniziale.
+
+\subsection{Notebook e Analisi}
+Il lavoro tecnico è stato suddiviso in tre notebook Google Colab:
+\begin{itemize}
+    \item \textbf{Notebook 1 – Analisi e contesto:} contiene il Product Canvas, le personae, le user story e i primi esempi descrittivi.
+    \item \textbf{Notebook 2 – Pulizia dei dati:} importa i dataset ISTAT originali, li pulisce, seleziona le colonne corrette e salva le versioni pronte all’analisi in formato CSV.
+    \item \textbf{Notebook 3 – Output e chatbot:} carica i dati puliti, calcola le percentuali per area geografica e genera le tabelle finali. Contiene anche il chatbot, che risponde dinamicamente in base alla persona selezionata.
+\end{itemize}
+
+\subsection{Tabelle e Visualizzazioni}
+Sono state generate tabelle riassuntive che mostrano le percentuali di:
+\begin{itemize}
+    \item Destinazioni (Italia vs Estero)
+    \item Mezzi di trasporto
+    \item Tipologie di alloggio
+\end{itemize}
+Queste tabelle sono filtrabili per macroarea di residenza, consentendo una lettura mirata e utile per la definizione di strategie promozionali.
+
+\subsection{Chatbot Interattivo}
+Il chatbot, implementato in Python, consente all’utente di selezionare una delle personae (Giulia, Luca, Silvia) e ottenere una sintesi delle abitudini di viaggio rilevanti per il proprio profilo. Le risposte vengono generate in linguaggio naturale e si basano sui dati ISTAT reali.
+
+\subsection{Valore per gli Stakeholder}
+Grazie alla combinazione tra dati ufficiali, analisi mirata e interfaccia conversazionale, il prodotto fornisce uno strumento concreto per:
+\begin{itemize}
+    \item progettare campagne promozionali regionali;
+    \item supportare policy maker nel turismo sostenibile;
+    \item facilitare l’analisi data-driven per enti pubblici e agenzie.
+\end{itemize}
+
+\section{Riepilogo degli Sprint, Epiche e User Story}
+
+Questa sezione riepiloga il lavoro svolto dal team nel corso dei tre sprint, secondo la metodologia Agile. Ogni epica è stata scomposta in user story puntuali, assegnate ai membri del team in base alle competenze. I punti assegnati a ciascuna user story rappresentano lo sforzo stimato.
+
+\begin{table}[h!]
+\centering
+\caption{Backlog Progetto 3: Sprint, Epiche, User Story, Assegnatari e Story Points}
+\label{tab:backlog_progetto3}
+\begin{tabular}{|p{3cm}|p{3cm}|p{4cm}|p{3.5cm}|p{0.5cm}|}
+\hline
+\textbf{Sprint}& \textbf{Epica} & \textbf{User Story} & \textbf{Assegnatari} & \textbf{SP} \\
+\hline
+\textbf{Visione e fondamenti} (30 Jun 2025–05 Jul 2025) 
+& E1 - Visione \& Contesto 
+& US6 - Definire il Product Canvas 
+& Filippo Vignoli & 2 \\
+\cline{3-5}
+& & US7 - Creare tre personae rappresentative 
+& Filippo Vignoli, Laura Tonsi, Susanna Cioni & 2 \\
+\hline
+\textbf{Pulizia \& Analisi Dati} (07 Jul 2025–12 Jul 2025) 
+& E2 - Pulizia \& Preparazione Dati 
+& US8 - Pulire e salvare i dataset ISTAT 
+& Laura Tonsi, Susanna Cioni & 3 \\
+\cline{2-5}
+& E3 - Analisi \& Metriche 
+& US9 - Calcolare percentuali per destinazioni 
+& Susanna Cioni & 2 \\
+\hline
+\textbf{Interazione \& Consegna} (14 Jul 2025–19 Jul 2025) 
+& E4 - Conversational Insight 
+& US10 - Generare risposte per il chatbot 
+& Susanna Cioni, Laura Tonsi & 3 \\
+\cline{2-5}
+& E5 - Documentazione \& Consegna 
+& US11 - Compilare e caricare la relazione finale 
+& Filippo Vignoli, Laura Tonsi, Susanna Cioni & 2 \\
+\cline{3-5}
+& & US12 - Documentare le retrospettive su Essence WorkBench 
+& Laura Tonsi & 3 \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+\section {\href{https://workbench.ivarjacobson.com/eip\#teamroom/a578ea01-8991-4fde-8640-50e25cadbdd9/elementsmap?card=b0935c98-e707-5db9-89cc-36737d6a723b\&hide_activities=1\&layer=context\&tab=about\&things_to_do=0\&tree=b0935c98-e707-5db9-89cc-36737d6a723b---collapsible---non-collapsible---1960a39f-db98-5b03-8c56-2e64323d4f88---left-alphas---customer---} {Retrospettive Essence}}
+Ogni sprint si è concluso con una retrospettiva strutturata, utile a riflettere sul lavoro svolto, individuare eventuali criticità e adattare costantemente le modalità operative. Le retrospettive sono state guidate dal framework \textbf{Essence}, che ha permesso di valutare l’evoluzione del progetto attraverso il monitoraggio degli Alpha fondamentali: Opportunity, Stakeholders, Requirements, Software System, Work, Team e Way of Working. L’adozione di questo approccio ha garantito allineamento strategico, migliorato la collaborazione interna e favorito una crescita continua della maturità del team.
+
+\subsection*{Sprint 1 - Retrospettiva (\textbf{Visione e Fondamenta
+})}
+\begin{itemize}
+    \item \textbf{Stato degli Alpha}
+    \begin{itemize}
+        \item Opportunity: Value Established. L’opportunità di progetto è stata chiaramente definita e il valore del prodotto ”Travel Target” è ben compreso dal team. Il problema delle campagne generiche è stato validato.
+        \item Stakeholders: Represented. Tutti gli stakeholder chiave sono stati identificati e le loro esigenze sono state tradotte in personae e user story dettagliate.
+        \item Requirements: Bounded. Le user story sono state definite e forniscono una guida chiara per lo sviluppo futuro. I requisiti iniziali di alto livello sono stati stabiliti.
+        \item Software System: Architecture Selected. L’architettura generale (tre notebook Colab, Python, Google Drive) è stata selezionata.
+        \item Work: Prepared. Il lavoro di pianificazione dello sprint è stato completato come previsto, con la definizione delle attività iniziali.
+        \item Team: Formed. Il team ha iniziato a collaborare efficacemente nella fase di definizione del progetto e distribuzione dei ruoli.
+        \item Way of Working: Principles Established. Strumenti scelti (Colab, Drive, Python), struttura a notebook definita, ruoli distribuiti e processo di lavoro iniziale discusso. Nessuna attività ancora svolta.
+    \end{itemize}
+    \item \textbf{Problemi o Rischi Identificati}
+    \begin{itemize}
+        \item Rischio di complessità nella pulizia dei dati ISTAT a causa della loro struttura originale (celle unite, colonne multiple per anno).
+        \item Potenziale difficoltà nel coordinamento del team a distanza per le sessioni di lavoro più tecniche.
+    \end{itemize}
+    \item \textbf{Decisioni Prese dal Team}
+    \begin{itemize}
+        \item Dedicare una parte significativa dello Sprint 2 alla fase di pulizia dati, prevedendo sessioni di pair programming per affrontare le complessità.
+        \item Stabilire riunioni giornaliere di 15 minuti (daily scrum) per un allineamento rapido e la risoluzione tempestiva di eventuali blocchi.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Sprint 2 - Retrospettiva (\textbf{Pulizia e Analisi Dati})} 
+\begin{itemize}
+    \item \textbf{Stato degli Alpha}
+    \begin{itemize}
+        \item Opportunity: Viable. L’opportunità rimane valida e la comprensione del problema si è approfondita con l’esplorazione dei dati.
+        \item Stakeholders: In Agreement. Le esigenze delle personae sono state ulteriormente validate durante l’esplorazione iniziale dei dati.
+        \item Requirements: Coherent. I requisiti sono stati affinati man mano che la struttura dei dati è diventata più chiara.
+        \item Software System: Demonstrable. Il codice per l’estrazione, la pulizia e la trasformazione dei dati è stato implementato e testato.
+        \item Work: Under Control. Gran parte del lavoro di pulizia è stato completato, ma sono emerse sfide inattese che hanno richiesto tempo aggiuntivo.
+        \item Team: Collaborating. Il team ha lavorato bene insieme per risolvere i problemi di pulizia dati, dimostrando adattabilità.
+        \item Way of Working: In Use. Il modo di lavorare è stato messo in pratica (pair programming, miglioramento delle funzioni, sessioni di debug), anche se non ancora del tutto stabilizzato.
+    \end{itemize}
+    \item \textbf{Problemi o Rischi Identificati}
+    \begin{itemize}
+        \item Difficoltà inattese nella gestione delle colonne ”anno” multiple e dei nomi delle colonne con spazi extra, che hanno causato KeyError.
+        \item Il problema della duplicazione dei dati per alcune regioni (es. ”Sud”) ha richiesto un debug approfondito e ha rallentato il progresso.
+        \item Il tempo stimato per la pulizia dati è stato sottostimato.
+    \end{itemize}
+    \item \textbf{Decisioni Prese dal Team}
+    \begin{itemize}
+        \item Rivedere e rendere più robusta la funzione melt and clean per gestire meglio i nomi delle colonne e la selezione delle colonne totali.
+        \item Dedicare una sessione di debug congiunta per risolvere il problema della duplicazione dei dati per la regione ”Sud”.
+        \item Ricalibrare le stime per lo Sprint 3, allocando più tempo per la finalizzazione e la documentazione.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Sprint 3 - Retrospettiva (\textbf{Interazione e Consegna})} 
+\begin{itemize}
+    \item \textbf{Stato degli Alpha}
+    \begin{itemize}
+        \item Opportunity: Benefit Accrued. Il prodotto risponde all’opportunità definita, fornendo insight chiari.
+        \item Stakeholders: Satisfied for Deployment. Il prodotto finale è allineato con le esigenze delle personae.
+        \item Requirements: Fulfilled. Tutte le user story sono state implementate e validate.
+        \item Software System: Operational. I tre notebook funzionano in modo integrato e producono gli output desiderati.
+        \item Work: Concluded. Tutte le attività previste sono state portate a termine, inclusa la documentazione.
+        \item Team: Performing. Il team ha raggiunto gli obiettivi finali, superando le sfide con successo e mantenendo un’alta qualità del lavoro.
+        \item Way of Working: Working Well. Il team ha usato con successo il metodo definito (notebook, divisione dei ruoli, collaborazione in Overleaf) e ha prodotto tutti gli output attesi, quindi il Way of Working è ormai consolidato.
+    \end{itemize}
+    \item \textbf{Problemi o Rischi Identificati}
+    \begin{itemize}
+        \item Pressione temporale nella fase finale per la generazione di tutte le visualizzazioni e la stesura della relazione.
+        \item Assicurare la chiarezza e l’interpretabilità di tutti gli output per un pubblico non tecnico.
+    \end{itemize}
+    \item \textbf{Decisioni Prese dal Team}
+    \begin{itemize}
+        \item Prioritizzare gli output più impattanti e direttamente correlati alle user story (tabelle e chatbot).
+        \item Assegnare ruoli specifici per la revisione incrociata della relazione e degli output per garantirne la chiarezza.
+        \item Utilizzare Overleaf per facilitare la collaborazione in tempo reale sulla documentazione finale.
+    \end{itemize}
+\end{itemize}
+
+\section{Tabella-diario: Ore di lavoro per membro del team}
+La seguente tabella riassume le ore di lavoro dedicate da ciascun membro del team per ogni sprint.
+\begin{table}[h!]
+\centering
+\caption{Distribuzione delle ore di lavoro per sprint e per membro del team}
+\label{tab:ore_lavoro}
+\begin{tabular}{lcccc}
+    \toprule
+    \textbf{Nome} & \textbf{Sprint 1} & \textbf{Sprint 2} & \textbf{Sprint 3} & \textbf{Totale Ore} \\
+    \midrule
+    Cioni Susanna & 2h & 12h & 11h & 25h \\
+    Tonsi Laura   & 4h & 9h  & 7h  & 20h \\
+    Vignoli Filippo & 6h & 2h  & 4h  & 12h \\
+    \midrule
+    \textbf{Totale ore} & \textbf{12h} & \textbf{24h} & \textbf{21h} & \textbf{57h} \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+\section{Chiusura del Progetto e Riflessione}
+
+L’esperienza di sviluppo del progetto \textit{Travel Target} ha rappresentato per il nostro team un’occasione preziosa per sperimentare un lavoro agile, data-driven e collaborativo, in un contesto realistico e sfidante. La definizione di personae, la creazione del backlog e l’organizzazione del lavoro in sprint ci hanno permesso di acquisire consapevolezza sia della complessità tecnica che della necessità di mantenere una visione focalizzata sul valore per l’utente.
+
+Un aspetto particolarmente arricchente è stato l’uso consapevole degli strumenti di Intelligenza Artificiale generativa (IA), come ad esempio \textit{ChatGPT, Gemini, Notebook LM}, che sono stati integrati nel processo decisionale e redazionale. L’IA è stata utilizzata per ispirare soluzioni, chiarire dubbi tecnici, strutturare testi e validare ipotesi, ma sempre all’interno di un approccio critico e controllato, in cui le decisioni finali e i contenuti sono rimasti sotto piena responsabilità del team.
+
+Dal punto di vista umano, il progetto ci ha permesso di sperimentare una collaborazione intensa e continua, affrontando anche momenti di difficoltà e riorganizzazione del team. Il superamento delle sfide tecniche, organizzative e comunicative ci ha aiutato a maturare come gruppo e come individui, rafforzando le nostre competenze in ambito progettuale, analitico e comunicativo.
+
+\bigskip
+\noindent
+\textbf{In sintesi:} \textit{Travel Target} è stato più di un progetto tecnico; è stato un laboratorio di crescita, dove dati, idee e persone si sono intrecciati per creare valore reale e applicabile. Chiudiamo questo percorso con la soddisfazione di aver trasformato un’idea in un prototipo funzionante e con la motivazione di continuare a migliorare.
+
+\section{Link}
+\begin{itemize}
+    \item \href{https://workbench.ivarjacobson.com/eip#teamroom/a578ea01-8991-4fde-8640-50e25cadbdd9/elementsmap?card=b0935c98-e707-5db9-89cc-36737d6a723b&hide_activities=1&layer=context&tab=about&things_to_do=0&tree=b0935c98-e707-5db9-89cc-36737d6a723b---collapsible---non-collapsible---1960a39f-db98-5b03-8c56-2e64323d4f88---left-alphas---customer---}{Essence WorkBench}
+    \item \href{https://tree.taiga.io/project/filippovignoli-progetto-3/epics}{Taiga}
+\end{itemize}
+
+\end{document}
